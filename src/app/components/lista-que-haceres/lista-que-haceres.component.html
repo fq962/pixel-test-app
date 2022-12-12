@@ -1,0 +1,21 @@
+<div class="contenedor">
+    <div class="listita">
+      <div class="row">
+        <input (keyup.enter)="agregarTarea($event)" [(ngModel)]="nuevaTarea" class="input" placeholder="Ingrese un que hacer" type="text" pInputText />
+        <button pButton type="button" (click)="eliminarTareas()" icon="pi pi-trash" iconPos="left" class="p-button-danger"></button>
+        <button pButton type="button" (click)="actualizarTarea()" icon="pi pi-check" iconPos="left" class="p-button-success"></button>
+      </div>
+      <p-listbox [options]="tareas" [(ngModel)]="tareaSeleccionada" [checkbox]="true" [filter]="false" [multiple]="true" optionLabel="name" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+        <ng-template let-tarea pTemplate="item">
+            <div class="country-item">
+                <div>
+                  <s *ngIf="tarea.estaFinalizada">
+                    <label>{{tarea.tarea}}</label>
+                  </s>
+                  <label *ngIf="!tarea.estaFinalizada">{{tarea.tarea}}</label>
+              </div>
+            </div>
+        </ng-template>
+    </p-listbox>
+    </div>
+</div>
