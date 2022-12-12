@@ -6,7 +6,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class TareasService {
-  WEB_SERVICE = 'http://localhost:3000';
+  WEB_SERVICE = 'https://pixel-test-api-production.up.railway.app';
   constructor(private http: HttpClient) {}
 
   //Obtener todas las tareas
